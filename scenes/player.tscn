@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bt66g3xxn8my4"]
+
+[ext_resource type="Script" uid="uid://cwx4gca3v1sck" path="res://scripts/player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://e53kslcoqb5n" path="res://assets/sprites/player-idle.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://et8jyyqp41eb" path="res://assets/sprites/player-move-1.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://fn8rovmkow6x" path="res://assets/sprites/player-move-2.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://dnyvjj47maueu" path="res://assets/sprites/player profile.png" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://d3qc1k4uh1jbn" path="res://scenes/pause_btn.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://djn3wuqimqhc2" path="res://scenes/pause_panel.gd" id="7_fjrip"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_quvqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1jxqw")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
+radius = 26.019224
+
+[node name="player" type="CharacterBody2D" unique_id=1046588242]
+script = ExtResource("1_hqtel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1474608847]
+sprite_frames = SubResource("SpriteFrames_quvqs")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1462248109]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_dqkch")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=908600999]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=909481735]
+
+[node name="UI" type="Control" parent="Camera2D/CanvasLayer" unique_id=68490238]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -576.0
+offset_top = -320.0
+offset_right = 576.0
+offset_bottom = 328.0
+pivot_offset = Vector2(576, 324)
+
+[node name="health" type="TextureRect" parent="Camera2D/CanvasLayer/UI" unique_id=958972051]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_top = 120.0
+offset_right = 768.0
+offset_bottom = 320.0
+grow_vertical = 0
+pivot_offset = Vector2(0, 200)
+texture = ExtResource("5_qlg0r")
+expand_mode = 3
+
+[node name="settings_menu" type="CanvasLayer" parent="Camera2D/CanvasLayer/UI" unique_id=1518139217]
+unique_name_in_owner = true
+
+[node name="pause_btn" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu" unique_id=846663846]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 10)
+offset_right = 80.0
+offset_bottom = 31.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(5, 5)
+text = "Settings"
+script = ExtResource("6_tuyoq")
+
+[node name="pause_panel" type="PanelContainer" parent="Camera2D/CanvasLayer/UI/settings_menu" unique_id=342849144]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(320, 275)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -125.0
+offset_right = 160.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_fjrip")
+isPaused = null
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel" unique_id=927352397]
+process_mode = 3
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PAUSED" type="Label" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=1663364622]
+layout_mode = 2
+text = "GAME IS PAUSED"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=1778352008]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=500358618]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+text = "Settings
+"
+
+[node name="Main Menu" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=452731646]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="visibility_changed" from="Camera2D/CanvasLayer/UI/settings_menu" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_settings_menu_visibility_changed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer/Resume" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer/Main Menu" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_main_menu_pressed"]

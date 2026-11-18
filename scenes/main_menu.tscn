@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c4ae7i0cbk3jy"]
+
+[ext_resource type="Script" uid="uid://bc8yhqsv8s8nh" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+
+[node name="Main Menu" type="Node2D" unique_id=1832802352]
+script = ExtResource("1_l6cm7")
+
+[node name="Btn Manager" type="Control" parent="." unique_id=672773010]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="Play" type="Button" parent="Btn Manager" unique_id=1321061420]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 16.0
+offset_right = 128.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="Btn Manager" unique_id=1708664196]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Btn Manager" unique_id=2086779509]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 176.0
+offset_right = 128.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="txt_quit" type="TextureButton" parent="Btn Manager" unique_id=8544402]
+visible = false
+layout_mode = 0
+offset_left = 408.0
+offset_top = 536.0
+offset_right = 672.0
+offset_bottom = 600.0
+
+[connection signal="pressed" from="Btn Manager/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Btn Manager/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Btn Manager/Quit" to="." method="_on_quit_pressed"]
