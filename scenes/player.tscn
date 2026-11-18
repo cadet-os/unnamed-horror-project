@@ -72,67 +72,66 @@ pivot_offset = Vector2(0, 200)
 texture = ExtResource("5_qlg0r")
 expand_mode = 3
 
-[node name="settings_menu" type="CanvasLayer" parent="Camera2D/CanvasLayer/UI" unique_id=1518139217]
-unique_name_in_owner = true
-
-[node name="pause_btn" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu" unique_id=846663846]
+[node name="pause_btn" type="Button" parent="Camera2D/CanvasLayer/UI" unique_id=846663846]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 10)
-offset_right = 80.0
-offset_bottom = 31.0
+layout_mode = 0
+offset_left = 576.0
+offset_top = 320.0
+offset_right = 656.0
+offset_bottom = 351.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(5, 5)
 text = "Settings"
 script = ExtResource("6_tuyoq")
 
-[node name="pause_panel" type="PanelContainer" parent="Camera2D/CanvasLayer/UI/settings_menu" unique_id=342849144]
+[node name="pause_panel" type="PanelContainer" parent="Camera2D/CanvasLayer/UI" unique_id=342849144]
 unique_name_in_owner = true
 process_mode = 3
 visible = false
 custom_minimum_size = Vector2(320, 275)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -125.0
-offset_right = 160.0
-offset_bottom = 125.0
+offset_left = 416.0
+offset_top = 182.5
+offset_right = 736.0
+offset_bottom = 457.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_fjrip")
-isPaused = null
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel" unique_id=927352397]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/UI/pause_panel" unique_id=927352397]
 process_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="PAUSED" type="Label" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=1663364622]
+[node name="PAUSED" type="Label" parent="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer" unique_id=1663364622]
 layout_mode = 2
 text = "GAME IS PAUSED"
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=1778352008]
+[node name="Resume" type="Button" parent="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer" unique_id=1778352008]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 text = "Resume"
 
-[node name="Settings" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=500358618]
+[node name="Settings" type="Button" parent="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer" unique_id=500358618]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 text = "Settings
 "
 
-[node name="Main Menu" type="Button" parent="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer" unique_id=452731646]
+[node name="Main Menu" type="Button" parent="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer" unique_id=452731646]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 text = "Main Menu"
 
-[connection signal="visibility_changed" from="Camera2D/CanvasLayer/UI/settings_menu" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_settings_menu_visibility_changed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer/Resume" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_resume_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/UI/settings_menu/pause_panel/VBoxContainer/Main Menu" to="Camera2D/CanvasLayer/UI/settings_menu/pause_btn" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_btn" to="Camera2D/CanvasLayer/UI/pause_btn" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer/Resume" to="Camera2D/CanvasLayer/UI/pause_btn" method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer/Main Menu" to="Camera2D/CanvasLayer/UI/pause_btn" method="_on_main_menu_pressed"]
