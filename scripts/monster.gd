@@ -23,8 +23,9 @@ func _physics_process(_delta):
 	move_and_slide()
 	look_at(player.global_position)
 	rotation -= deg_to_rad(90)
+
 func attack():
-	if player.health == 1:
+	if player.health >= 1:
 		if can_attack == false:
 			return
 		can_attack = false
