@@ -13,9 +13,9 @@ func _ready() -> void:
 	get_tree().paused = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	#pass
 
 # resume game button
 #func _on_resume_pressed() -> void:
