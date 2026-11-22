@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bj8g57peripyj"]
+
+[ext_resource type="Script" uid="uid://btgfc3g7cju72" path="res://scenes/lvl_select_icon.gd" id="1_bw2qh"]
+
+[sub_resource type="Gradient" id="Gradient_3p0cv"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h7uc8"]
+gradient = SubResource("Gradient_3p0cv")
+width = 100
+
+[sub_resource type="Gradient" id="Gradient_g2bk7"]
+colors = PackedColorArray(0, 0, 0, 1, 0.74365497, 0.6826006, 0.37411556, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r4wwj"]
+gradient = SubResource("Gradient_g2bk7")
+
+[sub_resource type="Gradient" id="Gradient_m7cwt"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5f5l4"]
+gradient = SubResource("Gradient_m7cwt")
+
+[node name="lvl_select_icon" type="Control" unique_id=960037621]
+custom_minimum_size = Vector2(100, 100)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 3
+anchor_right = 0.087000005
+anchor_bottom = 0.15400001
+offset_right = -0.22400665
+offset_bottom = 0.20799255
+script = ExtResource("1_bw2qh")
+
+[node name="lvl_select_btn" type="TextureButton" parent="." unique_id=1469765110]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = SubResource("GradientTexture1D_h7uc8")
+texture_pressed = SubResource("GradientTexture1D_r4wwj")
+texture_hover = SubResource("GradientTexture1D_5f5l4")
+stretch_mode = 0
+
+[node name="lvl_num" type="RichTextLabel" parent="." unique_id=2046192500]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -25.0
+offset_right = 0.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 35
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

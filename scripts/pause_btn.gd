@@ -3,7 +3,7 @@ extends Button
 @onready var pause_panel = %pause_panel
 	
 func _ready() -> void:
-	%pause_panel.visible = false
+	pause_panel.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = false
 
@@ -13,7 +13,4 @@ func _ready() -> void:
 
 # settings gear toggle
 func _on_pressed() -> void:
-	pause_panel.visible = !pause_panel.visible
-	get_tree().paused = !get_tree().paused
-	pause_panel.isPaused = !pause_panel.isPaused
-	#pause_panel.pauseState()
+	pause_panel.pauseState()

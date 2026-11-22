@@ -23,11 +23,10 @@ func _process(_delta):
 	look_at(get_global_mouse_position())
 	rotation -= deg_to_rad(90)
 
-
 func take_damage(amount):
 	health -= amount
 	print("Health: ", health)
 	if health <= 0:
 		print("Player Died")
-		get_tree().change_scene_to_file("res://scenes/game_over_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/menus/game_over_menu.tscn")
 		
