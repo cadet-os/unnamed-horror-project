@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://et8jyyqp41eb" path="res://assets/sprites/player-move-1.png" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://fn8rovmkow6x" path="res://assets/sprites/player-move-2.png" id="4_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://dnyvjj47maueu" path="res://assets/sprites/player profile.png" id="5_qlg0r"]
-[ext_resource type="Script" uid="uid://d3qc1k4uh1jbn" path="res://scenes/pause_btn.gd" id="6_tuyoq"]
-[ext_resource type="Script" uid="uid://djn3wuqimqhc2" path="res://scenes/pause_panel.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://d3qc1k4uh1jbn" path="res://scripts/pause_btn.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://djn3wuqimqhc2" path="res://scripts/pause_panel.gd" id="7_fjrip"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_quvqs"]
 animations = [{
@@ -88,7 +88,6 @@ script = ExtResource("6_tuyoq")
 [node name="pause_panel" type="PanelContainer" parent="Camera2D/CanvasLayer/UI" unique_id=342849144]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 custom_minimum_size = Vector2(320, 275)
 layout_mode = 1
 anchors_preset = 8
@@ -133,5 +132,6 @@ layout_mode = 2
 text = "Main Menu"
 
 [connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_btn" to="Camera2D/CanvasLayer/UI/pause_btn" method="_on_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer/Resume" to="Camera2D/CanvasLayer/UI/pause_btn" method="_on_resume_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer/Main Menu" to="Camera2D/CanvasLayer/UI/pause_btn" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer/Resume" to="Camera2D/CanvasLayer/UI/pause_panel" method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer/Settings" to="Camera2D/CanvasLayer/UI/pause_panel" method="_on_settings_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/UI/pause_panel/VBoxContainer/Main Menu" to="Camera2D/CanvasLayer/UI/pause_panel" method="_on_main_menu_pressed"]

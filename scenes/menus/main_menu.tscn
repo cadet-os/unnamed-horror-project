@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://c4ae7i0cbk3jy"]
 
-[ext_resource type="Script" uid="uid://bc8yhqsv8s8nh" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://bc8yhqsv8s8nh" path="res://scripts/main_menu.gd" id="1_xqga4"]
 
 [node name="Main Menu" type="Node2D" unique_id=1832802352]
-script = ExtResource("1_l6cm7")
+script = ExtResource("1_xqga4")
 
-[node name="Btn Manager" type="Control" parent="." unique_id=672773010]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2072134791]
+
+[node name="Btn Manager" type="Control" parent="CanvasLayer" unique_id=672773010]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 640.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Play" type="Button" parent="Btn Manager" unique_id=1321061420]
+[node name="Play" type="Button" parent="CanvasLayer/Btn Manager" unique_id=1321061420]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -27,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
 
-[node name="Settings" type="Button" parent="Btn Manager" unique_id=1708664196]
+[node name="Settings" type="Button" parent="CanvasLayer/Btn Manager" unique_id=1708664196]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -43,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Settings"
 
-[node name="Quit" type="Button" parent="Btn Manager" unique_id=2086779509]
+[node name="Quit" type="Button" parent="CanvasLayer/Btn Manager" unique_id=2086779509]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -59,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Quit"
 
-[node name="txt_quit" type="TextureButton" parent="Btn Manager" unique_id=8544402]
+[node name="txt_quit" type="TextureButton" parent="CanvasLayer/Btn Manager" unique_id=8544402]
 visible = false
 layout_mode = 0
 offset_left = 408.0
@@ -67,6 +71,6 @@ offset_top = 536.0
 offset_right = 672.0
 offset_bottom = 600.0
 
-[connection signal="pressed" from="Btn Manager/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Btn Manager/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Btn Manager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Btn Manager/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Btn Manager/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Btn Manager/Quit" to="." method="_on_quit_pressed"]
